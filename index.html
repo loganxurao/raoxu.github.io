@@ -1,61 +1,205 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Welcome to My Space</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Logan · 首页</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root {
+      --bg: #f6f8fc;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --brand: #2563eb;
+      --brand-soft: #dbeafe;
     }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      background-color: #0d0d0d;
-      color: #f5f5f5;
-      font-family: 'Roboto Mono', monospace;
+      font-family: Inter, system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      padding: 24px;
+    }
+    .wrap { width: min(920px, 100%); margin: 0 auto; }
+    .nav {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
-      min-height: 100vh;
-      text-align: center;
-      padding: 2rem;
+      margin-bottom: 24px;
     }
-    .container {
-      max-width: 600px;
-    }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-    p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: #ccc;
-      margin-bottom: 2rem;
-    }
-    .links a {
-      color: #00ffe0;
+    .logo { font-weight: 700; text-decoration: none; color: var(--text); }
+    .menu { display: flex; gap: 10px; }
+    .menu a {
       text-decoration: none;
-      margin: 0 10px;
-      border-bottom: 1px solid transparent;
-      transition: 0.3s;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 14px;
     }
-    .links a:hover {
-      border-color: #00ffe0;
+    .menu a.active { color: var(--brand); border-color: var(--brand); background: var(--brand-soft); }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 16px;
     }
+    h1 { font-size: clamp(28px, 4vw, 38px); margin-bottom: 8px; }
+    h2 { font-size: 20px; margin-bottom: 10px; }
+    .lead { color: var(--muted); margin-bottom: 14px; }
+    .links { display: flex; flex-wrap: wrap; gap: 10px; }
+    .btn {
+      text-decoration: none;
+      font-size: 14px;
+      border: 1px solid var(--line);
+      color: var(--text);
+      border-radius: 10px;
+      padding: 8px 12px;
+      background: #fff;
+      cursor: pointer;
+    }
+    .btn.primary { border-color: var(--brand); background: var(--brand); color: #fff; }
+
+    .list { display: grid; gap: 10px; }
+    .item {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px;
+      background: #fff;
+    }
+    .item small { color: var(--muted); }
+
+    .form { display: grid; gap: 10px; }
+    input, textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px;
+      font: inherit;
+      background: #fff;
+    }
+    textarea { min-height: 90px; resize: vertical; }
+
+    .empty { color: var(--muted); font-size: 14px; }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Hello, I’m Logan</h1>
-    <p>Welcome to my personal site.<br>Built by Logan.</p>
-    <div class="links">
-      <a href="https://raoxu.com" target="_blank">WebSite</a>
-      <a href="https://weibo.com/rushblog" target="_blank">Weibo</a>
-      <a href="mailto:xu.rao@lilve.com">Email Me</a>
-    </div>
+  <div class="wrap">
+    <header class="nav">
+      <a class="logo" href="index.html">Logan</a>
+      <nav class="menu">
+        <a class="active" href="index.html">首页</a>
+        <a href="about.html">关于</a>
+      </nav>
+    </header>
+
+    <section class="card">
+      <h1>你好，我是 Logan</h1>
+      <p class="lead">简洁记录，持续更新。</p>
+      <div class="links">
+        <a class="btn" href="https://raoxu.com" target="_blank" rel="noopener noreferrer">Website</a>
+        <a class="btn" href="https://weibo.com/rushblog" target="_blank" rel="noopener noreferrer">Weibo</a>
+        <a class="btn" href="mailto:xu.rao@lilve.com">Email</a>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>最新动态</h2>
+      <p class="lead">你可以在这里定期发布短内容。</p>
+      <div class="form" style="margin-bottom:12px;">
+        <input id="postTitle" type="text" placeholder="标题（例如：本周更新）" />
+        <textarea id="postContent" placeholder="内容（简短即可）"></textarea>
+        <button class="btn primary" id="publishBtn" type="button">发布内容</button>
+      </div>
+      <div id="postList" class="list"></div>
+    </section>
+
+    <section class="card">
+      <h2>留言板</h2>
+      <p class="lead">访客可以留下简单留言。</p>
+      <div class="form" style="margin-bottom:12px;">
+        <input id="msgName" type="text" placeholder="昵称" />
+        <textarea id="msgText" placeholder="说点什么..." maxlength="300"></textarea>
+        <button class="btn" id="msgBtn" type="button">提交留言</button>
+      </div>
+      <div id="msgList" class="list"></div>
+    </section>
   </div>
+
+  <script>
+    const fmtTime = (ts) => new Date(ts).toLocaleString('zh-CN', { hour12: false });
+
+    function renderList(el, arr, emptyText, mapper) {
+      if (!arr.length) {
+        el.innerHTML = `<p class="empty">${emptyText}</p>`;
+        return;
+      }
+      el.innerHTML = arr.map(mapper).join('');
+    }
+
+    const postsKey = 'logan_posts_v1';
+    const msgsKey = 'logan_msgs_v1';
+
+    const defaultPost = [{
+      title: '网站已更新',
+      content: '页面已优化为简洁风格，支持发布与留言。',
+      ts: Date.now()
+    }];
+
+    const posts = JSON.parse(localStorage.getItem(postsKey) || 'null') || defaultPost;
+    const msgs = JSON.parse(localStorage.getItem(msgsKey) || '[]');
+
+    const postList = document.getElementById('postList');
+    const msgList = document.getElementById('msgList');
+
+    function sync() {
+      localStorage.setItem(postsKey, JSON.stringify(posts));
+      localStorage.setItem(msgsKey, JSON.stringify(msgs));
+
+      renderList(postList, posts, '还没有发布内容。', (p) => `
+        <article class="item">
+          <strong>${p.title}</strong><br>
+          <small>${fmtTime(p.ts)}</small>
+          <p>${p.content}</p>
+        </article>
+      `);
+
+      renderList(msgList, msgs, '还没有留言。', (m) => `
+        <article class="item">
+          <strong>${m.name}</strong> <small>${fmtTime(m.ts)}</small>
+          <p>${m.text}</p>
+        </article>
+      `);
+    }
+
+    document.getElementById('publishBtn').addEventListener('click', () => {
+      const title = document.getElementById('postTitle').value.trim();
+      const content = document.getElementById('postContent').value.trim();
+      if (!title || !content) return;
+      posts.unshift({ title, content, ts: Date.now() });
+      document.getElementById('postTitle').value = '';
+      document.getElementById('postContent').value = '';
+      sync();
+    });
+
+    document.getElementById('msgBtn').addEventListener('click', () => {
+      const name = document.getElementById('msgName').value.trim() || '匿名';
+      const text = document.getElementById('msgText').value.trim();
+      if (!text) return;
+      msgs.unshift({ name, text, ts: Date.now() });
+      document.getElementById('msgName').value = '';
+      document.getElementById('msgText').value = '';
+      sync();
+    });
+
+    sync();
+  </script>
 </body>
 </html>
