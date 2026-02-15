@@ -2,25 +2,155 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>About Me</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About · Logan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #05070f;
+      --text: #e8edff;
+      --muted: #a4b0d8;
+      --cyan: #26e8ff;
+      --violet: #a970ff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      color: var(--text);
+      font-family: Inter, system-ui, sans-serif;
+      background: radial-gradient(circle at 12% 10%, #194f7270, transparent 35%),
+                  radial-gradient(circle at 88% 18%, #5a2e8a7d, transparent 35%),
+                  var(--bg);
+      padding: 2rem;
+    }
+
+    .wrap { width: min(940px, 100%); margin: 0 auto; }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2.2rem;
+    }
+
+    .logo {
+      font-family: "JetBrains Mono", monospace;
+      color: var(--cyan);
+      text-decoration: none;
+      font-size: .92rem;
+      letter-spacing: .08em;
+    }
+
+    .menu { display: flex; gap: .8rem; }
+
+    .menu a {
+      color: var(--text);
+      text-decoration: none;
+      border: 1px solid #ffffff2a;
+      border-radius: 999px;
+      padding: .45rem .8rem;
+      transition: .25s ease;
+      font-size: .9rem;
+    }
+
+    .menu a.active,
+    .menu a:hover { border-color: var(--cyan); box-shadow: 0 0 14px #26e8ff40; }
+
+    .panel {
+      border: 1px solid #ffffff24;
+      border-radius: 20px;
+      background: linear-gradient(150deg, #ffffff1e, #ffffff08);
+      backdrop-filter: blur(8px);
+      padding: clamp(1.2rem, 4vw, 2.4rem);
+      box-shadow: 0 20px 60px #00000055;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 7vw, 3.2rem);
+      margin-bottom: 1rem;
+      line-height: 1.1;
+    }
+
+    .accent {
+      background: linear-gradient(90deg, var(--cyan), #83adff, var(--violet));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .intro {
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 1.3rem;
+    }
+
+    .grid {
+      margin-top: 1.4rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: .9rem;
+    }
+
+    .item {
+      border: 1px solid #ffffff24;
+      border-radius: 14px;
+      padding: .8rem;
+      background: #ffffff0f;
+    }
+
+    .item h2 {
+      font-size: .9rem;
+      color: var(--cyan);
+      margin-bottom: .4rem;
+      font-family: "JetBrains Mono", monospace;
+      letter-spacing: .06em;
+    }
+
+    .item p {
+      font-size: .92rem;
+      color: #d4dcff;
+      line-height: 1.6;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html" class="active">About</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <div class="wrap">
+    <header class="nav">
+      <a class="logo" href="index.html">LOGAN://PROFILE</a>
+      <nav class="menu">
+        <a href="index.html">Home</a>
+        <a class="active" href="about.html">About</a>
+      </nav>
+    </header>
 
-  <main>
-    <h1>About Me</h1>
-    <p>Hello! I'm logan, a SAP consultant .</p>
-  </main>
+    <main class="panel">
+      <h1>About <span class="accent">Logan</span></h1>
+      <p class="intro">
+        我是一名 SAP 顾问，也是一名热衷于体验设计的技术人。
+        我擅长在业务与技术之间搭建桥梁：让流程更高效、系统更易用、协作更顺畅。
+      </p>
+      <p class="intro">
+        我相信“炫酷”不只是视觉效果，而是把速度、可靠性与美感一起交付。
+      </p>
+
+      <section class="grid">
+        <article class="item">
+          <h2>FOCUS</h2>
+          <p>SAP implementation, optimization, digital transformation.</p>
+        </article>
+        <article class="item">
+          <h2>STYLE</h2>
+          <p>Structured thinking, practical solutions, clean communication.</p>
+        </article>
+        <article class="item">
+          <h2>GOAL</h2>
+          <p>Create business systems that people actually enjoy using.</p>
+        </article>
+      </section>
+    </main>
+  </div>
 </body>
 </html>
