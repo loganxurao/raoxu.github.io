@@ -1,156 +1,113 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About · Logan</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <title>About | Rao Xu</title>
+  <meta name="description" content="关于 Rao Xu：SAP、数字化、自动化与个人品牌表达。" />
   <style>
     :root {
-      --bg: #05070f;
-      --text: #e8edff;
-      --muted: #a4b0d8;
-      --cyan: #26e8ff;
-      --violet: #a970ff;
+      --bg: #0b1020;
+      --panel: rgba(255,255,255,.08);
+      --text: #eef2ff;
+      --muted: #b7c0df;
+      --line: rgba(255,255,255,.12);
+      --brand: #67e8f9;
+      --brand-2: #8b5cf6;
+      --radius: 22px;
     }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
+    * { box-sizing: border-box; }
     body {
-      min-height: 100vh;
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
       color: var(--text);
-      font-family: Inter, system-ui, sans-serif;
-      background: radial-gradient(circle at 12% 10%, #194f7270, transparent 35%),
-                  radial-gradient(circle at 88% 18%, #5a2e8a7d, transparent 35%),
-                  var(--bg);
-      padding: 2rem;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(103,232,249,.14), transparent 26%),
+        radial-gradient(circle at 100% 20%, rgba(139,92,246,.18), transparent 28%),
+        linear-gradient(180deg, #0b1020 0%, #10172c 100%);
+      line-height: 1.7;
     }
-
-    .wrap { width: min(940px, 100%); margin: 0 auto; }
-
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 2.2rem;
-    }
-
-    .logo {
-      font-family: "JetBrains Mono", monospace;
-      color: var(--cyan);
-      text-decoration: none;
-      font-size: .92rem;
-      letter-spacing: .08em;
-    }
-
-    .menu { display: flex; gap: .8rem; }
-
-    .menu a {
-      color: var(--text);
-      text-decoration: none;
-      border: 1px solid #ffffff2a;
-      border-radius: 999px;
-      padding: .45rem .8rem;
-      transition: .25s ease;
-      font-size: .9rem;
-    }
-
-    .menu a.active,
-    .menu a:hover { border-color: var(--cyan); box-shadow: 0 0 14px #26e8ff40; }
-
+    .container { width: min(980px, calc(100% - 32px)); margin: 0 auto; }
+    .top { padding: 28px 0 18px; }
+    .back { color: var(--brand); text-decoration: none; }
+    .hero { padding: 22px 0 24px; }
+    h1 { font-size: clamp(34px, 7vw, 60px); line-height: 1.05; margin: 0 0 14px; }
+    .lead { color: var(--muted); max-width: 760px; }
     .panel {
-      border: 1px solid #ffffff24;
-      border-radius: 20px;
-      background: linear-gradient(150deg, #ffffff1e, #ffffff08);
-      backdrop-filter: blur(8px);
-      padding: clamp(1.2rem, 4vw, 2.4rem);
-      box-shadow: 0 20px 60px #00000055;
+      background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 26px; margin: 18px 0;
     }
-
-    h1 {
-      font-size: clamp(2rem, 7vw, 3.2rem);
-      margin-bottom: 1rem;
-      line-height: 1.1;
-    }
-
-    .accent {
-      background: linear-gradient(90deg, var(--cyan), #83adff, var(--violet));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .intro {
-      color: var(--muted);
-      line-height: 1.85;
-      margin-bottom: 1.3rem;
-    }
-
-    .grid {
-      margin-top: 1.4rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: .9rem;
-    }
-
+    h2 { margin-top: 0; font-size: 26px; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px; }
     .item {
-      border: 1px solid #ffffff24;
-      border-radius: 14px;
-      padding: .8rem;
-      background: #ffffff0f;
+      background: rgba(255,255,255,.04); border: 1px solid var(--line); border-radius: 18px; padding: 20px;
     }
-
-    .item h2 {
-      font-size: .9rem;
-      color: var(--cyan);
-      margin-bottom: .4rem;
-      font-family: "JetBrains Mono", monospace;
-      letter-spacing: .06em;
+    .label { color: var(--brand); font-size: 13px; text-transform: uppercase; letter-spacing: .08em; }
+    ul { margin: 12px 0 0 18px; color: var(--muted); }
+    p { color: var(--muted); }
+    .cta { margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; padding: 12px 18px; border-radius: 999px; border: 1px solid var(--line); text-decoration: none; color: var(--text);
     }
-
-    .item p {
-      font-size: .92rem;
-      color: #d4dcff;
-      line-height: 1.6;
-    }
+    .btn.primary { background: linear-gradient(135deg, var(--brand), #a78bfa); color: #08101f; border: none; font-weight: 700; }
+    @media (max-width: 780px) { .grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header class="nav">
-      <a class="logo" href="index.html">LOGAN://PROFILE</a>
-      <nav class="menu">
-        <a href="index.html">Home</a>
-        <a class="active" href="about.html">About</a>
-      </nav>
-    </header>
+  <div class="container">
+    <div class="top"><a class="back" href="index.html">← Back to home</a></div>
 
-    <main class="panel">
-      <h1>About <span class="accent">Logan</span></h1>
-      <p class="intro">
-        我是一名 SAP 顾问，也是一名热衷于体验设计的技术人。
-        我擅长在业务与技术之间搭建桥梁：让流程更高效、系统更易用、协作更顺畅。
+    <section class="hero">
+      <h1>About Rao Xu</h1>
+      <p class="lead">
+        我关注的不是单点设计，而是完整表达：从业务价值、专业形象到网站落地，让一个人或一个服务被更快理解、更容易信任。
       </p>
-      <p class="intro">
-        我相信“炫酷”不只是视觉效果，而是把速度、可靠性与美感一起交付。
-      </p>
+    </section>
 
-      <section class="grid">
-        <article class="item">
-          <h2>FOCUS</h2>
-          <p>SAP implementation, optimization, digital transformation.</p>
-        </article>
-        <article class="item">
-          <h2>STYLE</h2>
-          <p>Structured thinking, practical solutions, clean communication.</p>
-        </article>
-        <article class="item">
-          <h2>GOAL</h2>
-          <p>Create business systems that people actually enjoy using.</p>
-        </article>
-      </section>
-    </main>
+    <section class="panel">
+      <h2>我的定位</h2>
+      <p>
+        我结合 SAP 咨询、数字化思维和内容表达能力，帮助个人与团队把“专业能力”转化成“别人看得懂、愿意合作、能带来机会”的品牌资产。
+      </p>
+    </section>
+
+    <section class="grid">
+      <article class="item">
+        <div class="label">Core Strength</div>
+        <h3>把复杂内容讲清楚</h3>
+        <p>尤其擅长把流程、系统、服务和专业能力转成简洁可信的结构与表达。</p>
+      </article>
+      <article class="item">
+        <div class="label">Professional Style</div>
+        <h3>冷静直接，执行优先</h3>
+        <p>不过度包装，不空谈概念。目标是快速做出有效版本，然后不断优化。</p>
+      </article>
+      <article class="item">
+        <div class="label">What I Care About</div>
+        <h3>业务、体验、转化三件事一起成立</h3>
+        <p>一个好网站不仅好看，还要让访客知道你是谁、为什么可信、怎么联系你。</p>
+      </article>
+      <article class="item">
+        <div class="label">Ideal Collaboration</div>
+        <h3>适合顾问、创始人、独立从业者</h3>
+        <p>尤其适合需要把专业服务、复杂价值和个人影响力放大的人。</p>
+      </article>
+    </section>
+
+    <section class="panel">
+      <h2>可继续补充的内容</h2>
+      <ul>
+        <li>真实项目案例 / 服务客户类型</li>
+        <li>你的正式邮箱、社媒、微信或 LinkedIn</li>
+        <li>中英文双语版本</li>
+        <li>博客 / 观点栏目</li>
+        <li>预约咨询入口</li>
+      </ul>
+      <div class="cta">
+        <a class="btn primary" href="index.html#contact">Contact</a>
+        <a class="btn" href="index.html">Home</a>
+      </div>
+    </section>
   </div>
 </body>
 </html>
