@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+const posts = (await getCollection('blog', ({ data }) => !data.draft && data.lang === 'zh')).sort((a,b)=> b.data.pubDate.valueOf()-a.data.pubDate.valueOf()).slice(0,3);
+---
+<BaseLayout title="Rao Xu | SAP Basis 顾问" description="Rao Xu 的 SAP Basis 中文博客与个人网站。" lang="zh">
+  <main class="container">
+    <section class="hero">
+      <div class="eyebrow">SAP BASIS · 系统运维 · 稳定性</div>
+      <h1 class="page-title">构建稳定、安全、可扩展的 SAP 系统环境。</h1>
+      <p class="lead">我是 Rao Xu，专注 SAP Basis、系统管理、监控、迁移、备份恢复与运行稳定性。这个网站是一个可持续维护的中文技术写作入口。</p>
+      <div class="grid-2">
+        <article class="card"><h3>专业主页</h3><p>清楚呈现专业方向、能力范围与联系方式。</p></article>
+        <article class="card"><h3>博客系统</h3><p>基于 Markdown 的文章系统，适合长期写作与归档。</p></article>
+      </div>
+    </section>
+    <section>
+      <h2 class="section-title">最新文章</h2>
+      <div class="grid-1">
+        {posts.map((post) => (
+          <article class="post"><h3><a href={`/zh/writing/${post.slug}/`}>{post.data.title}</a></h3><p>{post.data.description}</p><div class="tag-list">{post.data.tags.map((tag) => <span class="tag">{tag}</span>)}</div></article>
+        ))}
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="container footer-box"><div><strong style="font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--ivory)">Rao Xu</strong><br/><span>SAP Basis 顾问 · 中文站</span></div><a class="btn primary" href="/zh/writing/">进入写作</a></div></footer>
+</BaseLayout>

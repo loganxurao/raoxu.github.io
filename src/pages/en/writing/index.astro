@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+const posts = (await getCollection('blog', ({ data }) => !data.draft && data.lang === 'en')).sort((a,b)=> b.data.pubDate.valueOf()-a.data.pubDate.valueOf());
+---
+<BaseLayout title="Writing | Rao Xu" description="SAP Basis articles, notes and technical writing by Rao Xu." lang="en">
+  <main class="container hero">
+    <h1 class="page-title">Writing</h1>
+    <p class="lead">A real blog index for SAP Basis writing: operations notes, migration summaries and monitoring practices.</p>
+    <div class="grid-1">
+      {posts.map((post) => (
+        <article class="post"><h3><a href={`/en/writing/${post.slug}/`}>{post.data.title}</a></h3><p>{post.data.description}</p><div class="tag-list">{post.data.tags.map((tag) => <span class="tag">{tag}</span>)}</div></article>
+      ))}
+    </div>
+  </main>
+</BaseLayout>

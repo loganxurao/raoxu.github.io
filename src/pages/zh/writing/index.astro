@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+const posts = (await getCollection('blog', ({ data }) => !data.draft && data.lang === 'zh')).sort((a,b)=> b.data.pubDate.valueOf()-a.data.pubDate.valueOf());
+---
+<BaseLayout title="写作 | Rao Xu" description="Rao Xu 的 SAP Basis 文章、笔记与技术写作。" lang="zh">
+  <main class="container hero">
+    <h1 class="page-title">写作</h1>
+    <p class="lead">这里是真正的博客文章列表页，用于持续发布 SAP Basis 相关文章。</p>
+    <div class="grid-1">
+      {posts.map((post) => (
+        <article class="post"><h3><a href={`/zh/writing/${post.slug}/`}>{post.data.title}</a></h3><p>{post.data.description}</p><div class="tag-list">{post.data.tags.map((tag) => <span class="tag">{tag}</span>)}</div></article>
+      ))}
+    </div>
+  </main>
+</BaseLayout>

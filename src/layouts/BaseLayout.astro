@@ -7,10 +7,8 @@ interface Props {
 const { title, description = 'Rao Xu personal website and SAP Basis blog.', lang = 'en' } = Astro.props;
 const isZh = lang === 'zh';
 const nav = isZh
-  ? { about: '关于', writing: '写作', projects: '项目', contact: '联系' }
-  : { about: 'About', writing: 'Writing', projects: 'Projects', contact: 'Contact' };
-const switchHref = isZh ? '/?lang=en' : '/?lang=zh';
-const switchLabel = isZh ? 'EN' : '中文';
+  ? { about: '关于', writing: '写作', projects: '项目', contact: '联系', home: '/zh/', switchLabel: 'EN', switchHref: '/en/' }
+  : { about: 'About', writing: 'Writing', projects: 'Projects', contact: 'Contact', home: '/en/', switchLabel: '中文', switchHref: '/zh/' };
 ---
 <!DOCTYPE html>
 <html lang={lang}>
@@ -38,13 +36,13 @@ const switchLabel = isZh ? 'EN' : '中文';
   <body>
     <nav class="nav">
       <div class="container nav-inner">
-        <a class="logo" href={isZh ? '/?lang=zh' : '/'}>Rao<span>Xu</span></a>
+        <a class="logo" href={nav.home}>Rao<span>Xu</span></a>
         <div class="menu">
-          <a href={isZh ? '/about/?lang=zh' : '/about/'}>{nav.about}</a>
-          <a href={isZh ? '/writing/?lang=zh' : '/writing/'}>{nav.writing}</a>
-          <a href={isZh ? '/projects/?lang=zh' : '/projects/'}>{nav.projects}</a>
-          <a href={isZh ? '/contact/?lang=zh' : '/contact/'}>{nav.contact}</a>
-          <a class="btn lang" href={switchHref}>{switchLabel}</a>
+          <a href={isZh ? '/zh/about/' : '/en/about/'}>{nav.about}</a>
+          <a href={isZh ? '/zh/writing/' : '/en/writing/'}>{nav.writing}</a>
+          <a href={isZh ? '/zh/projects/' : '/en/projects/'}>{nav.projects}</a>
+          <a href={isZh ? '/zh/contact/' : '/en/contact/'}>{nav.contact}</a>
+          <a class="btn lang" href={nav.switchHref}>{nav.switchLabel}</a>
         </div>
       </div>
     </nav>

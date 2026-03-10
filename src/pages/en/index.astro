@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+const posts = (await getCollection('blog', ({ data }) => !data.draft && data.lang === 'en')).sort((a,b)=> b.data.pubDate.valueOf()-a.data.pubDate.valueOf()).slice(0,3);
+---
+<BaseLayout title="Rao Xu | SAP Basis Consultant" description="Bilingual personal website and blog for SAP Basis operations, monitoring and migration." lang="en">
+  <main class="container">
+    <section class="hero">
+      <div class="eyebrow">SAP BASIS · INFRASTRUCTURE · OPERATIONS</div>
+      <h1 class="page-title">Building stable, secure and scalable SAP landscapes.</h1>
+      <p class="lead">I’m Rao Xu, a SAP Basis consultant focused on SAP administration, monitoring, migration, backup and system reliability. This site is a maintainable blog system built for long-term technical publishing.</p>
+      <div class="grid-2">
+        <article class="card"><h3>Professional Homepage</h3><p>A concise profile with clear focus, expertise and contact.</p></article>
+        <article class="card"><h3>Blog System</h3><p>Markdown-based publishing with article pages and future-ready structure.</p></article>
+      </div>
+    </section>
+    <section>
+      <h2 class="section-title">Latest Writing</h2>
+      <div class="grid-1">
+        {posts.map((post) => (
+          <article class="post"><h3><a href={`/en/writing/${post.slug}/`}>{post.data.title}</a></h3><p>{post.data.description}</p><div class="tag-list">{post.data.tags.map((tag) => <span class="tag">{tag}</span>)}</div></article>
+        ))}
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="container footer-box"><div><strong style="font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--ivory)">Rao Xu</strong><br/><span>SAP Basis Consultant · English site</span></div><a class="btn primary" href="/en/writing/">Go to Writing</a></div></footer>
+</BaseLayout>
