@@ -1,0 +1,26 @@
+{
+  "name": "raoxu.github.io",
+  "version": "1.0.0",
+  "description": "Bilingual personal website and SAP Basis blog for Rao Xu.",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/loganxurao/raoxu.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/loganxurao/raoxu.github.io/issues"
+  },
+  "homepage": "https://github.com/loganxurao/raoxu.github.io#readme",
+  "dependencies": {
+    "astro": "^6.0.1"
+  }
+}

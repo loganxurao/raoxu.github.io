@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort((a,b)=> b.data.pubDate.valueOf()-a.data.pubDate.valueOf()).slice(0,3);
+---
+<BaseLayout title="Rao Xu | SAP Basis Consultant" description="Bilingual personal website and blog for SAP Basis operations, monitoring and migration.">
+  <main class="container">
+    <section class="hero">
+      <div class="eyebrow">SAP BASIS · INFRASTRUCTURE · OPERATIONS · STABILITY</div>
+      <h1 class="page-title">Building stable, secure and scalable SAP landscapes.<br/>构建稳定、安全、可扩展的 SAP 系统环境。</h1>
+      <p class="lead">I’m Rao Xu, a SAP Basis consultant focused on SAP administration, monitoring, migration, backup and system reliability. This site is now a real blog system built for bilingual publishing and long-term knowledge accumulation.<br/><br/>我是 Rao Xu，专注 SAP Basis、系统管理、监控、迁移、备份恢复与运行稳定性。现在这个网站已经升级成真正的博客系统，适合中英文持续发布与长期积累。</p>
+      <div class="grid-2">
+        <article class="card"><h3>Professional Homepage</h3><p>Clear profile, focused expertise and direct contact.</p></article>
+        <article class="card"><h3>Blog System</h3><p>Markdown-based writing, article pages and future-ready content structure.</p></article>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Latest Writing / 最新文章</h2>
+      <div class="grid-1">
+        {posts.map((post) => (
+          <article class="post">
+            <h3><a href={`/writing/${post.slug}/`}>{post.data.title}</a></h3>
+            <p>{post.data.description}</p>
+            <div class="tag-list">
+              {post.data.tags.map((tag) => <span class="tag">{tag}</span>)}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="container footer-box"><div><strong style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--ivory)">Rao Xu</strong><br/><span>SAP Basis Consultant · Astro blog system · bilingual publishing</span></div><a class="btn primary" href="/writing/">Go to Writing</a></div></footer>
+</BaseLayout>
