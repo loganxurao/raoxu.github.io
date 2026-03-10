@@ -1,114 +1,21 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About | Rao Xu</title>
-  <meta name="description" content="关于 Rao Xu：SAP Basis、系统运维、架构稳定性、性能与企业级 SAP 支持。" />
+  <meta name="description" content="About Rao Xu — SAP Basis consultant focused on landscape administration, monitoring, migration and reliable SAP operations. / 关于 Rao Xu：专注 SAP Basis、监控、迁移与稳定运行。" />
   <style>
-    :root {
-      --bg: #0b1020;
-      --panel: rgba(255,255,255,.08);
-      --text: #eef2ff;
-      --muted: #b7c0df;
-      --line: rgba(255,255,255,.12);
-      --brand: #67e8f9;
-      --brand-2: #8b5cf6;
-      --radius: 22px;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 0% 0%, rgba(103,232,249,.14), transparent 26%),
-        radial-gradient(circle at 100% 20%, rgba(139,92,246,.18), transparent 28%),
-        linear-gradient(180deg, #0b1020 0%, #10172c 100%);
-      line-height: 1.7;
-    }
-    .container { width: min(980px, calc(100% - 32px)); margin: 0 auto; }
-    .top { padding: 28px 0 18px; }
-    .back { color: var(--brand); text-decoration: none; }
-    .hero { padding: 22px 0 24px; }
-    h1 { font-size: clamp(34px, 7vw, 60px); line-height: 1.05; margin: 0 0 14px; }
-    .lead { color: var(--muted); max-width: 760px; }
-    .panel {
-      background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
-      padding: 26px; margin: 18px 0;
-    }
-    h2 { margin-top: 0; font-size: 26px; }
-    .grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px; }
-    .item {
-      background: rgba(255,255,255,.04); border: 1px solid var(--line); border-radius: 18px; padding: 20px;
-    }
-    .label { color: var(--brand); font-size: 13px; text-transform: uppercase; letter-spacing: .08em; }
-    ul { margin: 12px 0 0 18px; color: var(--muted); }
-    p { color: var(--muted); }
-    .cta { margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap; }
-    .btn {
-      display: inline-flex; padding: 12px 18px; border-radius: 999px; border: 1px solid var(--line); text-decoration: none; color: var(--text);
-    }
-    .btn.primary { background: linear-gradient(135deg, var(--brand), #a78bfa); color: #08101f; border: none; font-weight: 700; }
-    @media (max-width: 780px) { .grid { grid-template-columns: 1fr; } }
+    :root{--bg:#0b1020;--panel:rgba(255,255,255,.08);--text:#eef2ff;--muted:#b7c0df;--line:rgba(255,255,255,.12);--brand:#67e8f9;--radius:22px}*{box-sizing:border-box}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,sans-serif;color:var(--text);background:radial-gradient(circle at 0% 0%,rgba(103,232,249,.14),transparent 26%),radial-gradient(circle at 100% 20%,rgba(139,92,246,.18),transparent 28%),linear-gradient(180deg,#0b1020 0%,#10172c 100%);line-height:1.7}.container{width:min(980px,calc(100% - 32px));margin:0 auto}.top{padding:28px 0 18px}.back{color:var(--brand);text-decoration:none}.hero{padding:22px 0 24px}h1{font-size:clamp(34px,7vw,60px);line-height:1.05;margin:0 0 14px}.lead,p,ul{color:var(--muted)}.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:26px;margin:18px 0}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.item{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:18px;padding:20px}.label{color:var(--brand);font-size:13px;text-transform:uppercase;letter-spacing:.08em}.cta{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-flex;padding:12px 18px;border-radius:999px;border:1px solid var(--line);text-decoration:none;color:var(--text)}.btn.primary{background:linear-gradient(135deg,var(--brand),#a78bfa);color:#08101f;border:none;font-weight:700}@media(max-width:780px){.grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="top"><a class="back" href="index.html">← Back to home</a></div>
-
-    <section class="hero">
-      <h1>About Rao Xu</h1>
-      <p class="lead">
-        我是一名 SAP Basis 从业者，关注 SAP 系统的稳定运行、技术运维与长期可维护性。这个网站将逐步沉淀我的专业方向、经验总结与技术观点。
-      </p>
-    </section>
-
-    <section class="panel">
-      <h2>我的定位</h2>
-      <p>
-        我是 Rao Xu，一名 SAP Basis Consultant。
-        我的关注重点包括 SAP landscape 管理、系统监控、性能优化、升级迁移、备份恢复与企业级运行保障。我希望这个网站既像专业主页，也能逐渐成为 SAP Basis 知识沉淀的入口。
-      </p>
-    </section>
-
-    <section class="grid">
-      <article class="item">
-        <div class="label">Core Strength</div>
-        <h3>把复杂内容讲清楚</h3>
-        <p>尤其擅长把流程、系统、服务和专业能力转成简洁可信的结构与表达。</p>
-      </article>
-      <article class="item">
-        <div class="label">Professional Style</div>
-        <h3>冷静直接，执行优先</h3>
-        <p>不过度包装，不空谈概念。目标是快速做出有效版本，然后不断优化。</p>
-      </article>
-      <article class="item">
-        <div class="label">What I Care About</div>
-        <h3>业务、体验、转化三件事一起成立</h3>
-        <p>一个好网站不仅好看，还要让访客知道你是谁、为什么可信、怎么联系你。</p>
-      </article>
-      <article class="item">
-        <div class="label">Ideal Collaboration</div>
-        <h3>适合顾问、创始人、独立从业者</h3>
-        <p>尤其适合需要把专业服务、复杂价值和个人影响力放大的人。</p>
-      </article>
-    </section>
-
-    <section class="panel">
-      <h2>可继续补充的内容</h2>
-      <ul>
-        <li>真实项目案例 / 服务客户类型</li>
-        <li>你的正式邮箱、社媒、微信或 LinkedIn</li>
-        <li>中英文双语版本</li>
-        <li>博客 / 观点栏目</li>
-        <li>预约咨询入口</li>
-      </ul>
-      <div class="cta">
-        <a class="btn primary" href="index.html#contact">Contact</a>
-        <a class="btn" href="index.html">Home</a>
-      </div>
-    </section>
+    <div class="top"><a class="back" href="index.html">← Back to home / 返回首页</a></div>
+    <section class="hero"><h1>About Rao Xu / 关于我</h1><p class="lead">I work in SAP Basis and focus on stable SAP operations, maintainable landscapes and long-term technical reliability. This site is designed to present both my professional profile and my technical writing in bilingual form.<br/><br/>我从事 SAP Basis，关注 SAP 系统的稳定运行、可维护架构与长期技术可靠性。这个网站将以中英文双语形式呈现我的专业方向、经验总结与技术文章。</p></section>
+    <section class="panel"><h2>Positioning / 我的定位</h2><p>I’m Rao Xu, a SAP Basis consultant. My focus includes SAP landscape administration, system monitoring, performance analysis, upgrades, migration, backup and recovery. I want this site to work both as a professional homepage and as a growing SAP Basis knowledge archive.<br/><br/>我是 Rao Xu，一名 SAP Basis Consultant。我的关注重点包括 SAP landscape 管理、系统监控、性能分析、升级迁移、备份恢复与企业级运行保障。我希望这个网站既像专业主页，也能逐渐成为 SAP Basis 知识沉淀入口。</p></section>
+    <section class="grid"><article class="item"><div class="label">Core Strength</div><h3>Structured technical communication / 结构化表达</h3><p>Turn complex technical work into clear explanations, useful documentation and credible positioning. / 把复杂技术工作转成清晰表达、可用文档和可信专业形象。</p></article><article class="item"><div class="label">Professional Style</div><h3>Calm, direct, execution-first / 冷静直接，执行优先</h3><p>Focus on useful outcomes instead of empty packaging. / 不空谈概念，优先做出有效结果。</p></article><article class="item"><div class="label">Current Focus</div><h3>SAP operations and reliability / SAP 运维与稳定性</h3><p>Landscape health, troubleshooting, upgrades and continuous operations. / landscape 健康、问题排查、升级与持续运行。</p></article><article class="item"><div class="label">Next Step</div><h3>Writing and projects / 写作与项目归档</h3><p>This site will continue to grow with technical notes, project summaries and practical experience. / 后续将持续补充技术笔记、项目总结与实践经验。</p></article></section>
+    <section class="panel"><h2>What will be added next / 下一步会补充</h2><ul><li>Real SAP Basis project snapshots / 真实项目经验摘要</li><li>Technical articles in English and Chinese / 中英文技术文章</li><li>Upgrade, migration and troubleshooting notes / 升级迁移与故障处理记录</li><li>More complete contact and professional links / 更完整的联系入口与职业链接</li></ul><div class="cta"><a class="btn primary" href="writing.html">Writing</a><a class="btn" href="projects.html">Projects</a></div></section>
   </div>
 </body>
 </html>

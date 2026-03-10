@@ -1,263 +1,45 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rao Xu | SAP Basis Consultant</title>
-  <meta name="description" content="Rao Xu 的个人品牌网站，专注 SAP Basis、系统运维、架构稳定性、性能优化与企业级 SAP 运行保障。" />
+  <meta name="description" content="Rao Xu personal website — SAP Basis consultant focused on system administration, monitoring, migration, performance and reliable SAP operations. / Rao Xu 个人网站，专注 SAP Basis、系统运维、监控、迁移与稳定运行。" />
   <meta name="theme-color" content="#0b1020" />
   <style>
-    :root {
-      --bg: #0b1020;
-      --panel: rgba(255,255,255,.08);
-      --panel-strong: rgba(255,255,255,.12);
-      --text: #eef2ff;
-      --muted: #b7c0df;
-      --line: rgba(255,255,255,.12);
-      --brand: #67e8f9;
-      --brand-2: #8b5cf6;
-      --brand-3: #22c55e;
-      --shadow: 0 20px 60px rgba(0,0,0,.35);
-      --radius: 22px;
-      --max: 1120px;
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 10% 10%, rgba(103,232,249,.16), transparent 28%),
-        radial-gradient(circle at 90% 20%, rgba(139,92,246,.18), transparent 28%),
-        radial-gradient(circle at 50% 100%, rgba(34,197,94,.12), transparent 24%),
-        linear-gradient(180deg, #0b1020 0%, #10172c 100%);
-      line-height: 1.6;
-    }
-    a { color: inherit; text-decoration: none; }
-    .container { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
-    .nav {
-      position: sticky; top: 0; z-index: 20;
-      backdrop-filter: blur(14px);
-      background: rgba(11,16,32,.55);
-      border-bottom: 1px solid rgba(255,255,255,.06);
-    }
-    .nav-inner {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 16px 0;
-    }
-    .logo { font-weight: 800; letter-spacing: .04em; }
-    .logo span { color: var(--brand); }
-    .menu { display: flex; gap: 18px; align-items: center; }
-    .menu a { color: var(--muted); font-size: 14px; }
-    .menu a:hover { color: var(--text); }
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center;
-      gap: 8px; padding: 12px 18px; border-radius: 999px;
-      border: 1px solid var(--line); transition: .2s ease;
-      font-weight: 600;
-    }
-    .btn:hover { transform: translateY(-1px); }
-    .btn.primary {
-      background: linear-gradient(135deg, var(--brand), #7c9cff 60%, var(--brand-2));
-      color: #08101f; border: none;
-      box-shadow: 0 10px 30px rgba(103,232,249,.25);
-    }
-    .hero { padding: 84px 0 44px; }
-    .eyebrow {
-      display: inline-block; padding: 8px 12px; border: 1px solid var(--line);
-      border-radius: 999px; color: var(--brand); font-size: 13px; margin-bottom: 18px;
-      background: rgba(255,255,255,.05);
-    }
-    h1 {
-      font-size: clamp(40px, 8vw, 76px); line-height: .98; margin: 0 0 18px;
-      max-width: 900px;
-    }
-    .gradient {
-      background: linear-gradient(135deg, var(--brand), #9ab0ff 40%, #c084fc 75%, #86efac);
-      -webkit-background-clip: text; background-clip: text; color: transparent;
-    }
-    .lead {
-      max-width: 760px; font-size: 18px; color: var(--muted); margin-bottom: 28px;
-    }
-    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 28px; }
-    .stats {
-      display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px; margin-top: 28px;
-    }
-    .stat, .card {
-      background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-    .stat { padding: 18px; }
-    .stat strong { display: block; font-size: 26px; margin-bottom: 6px; }
-    .stat span { color: var(--muted); font-size: 14px; }
-    section { padding: 34px 0; }
-    .section-title { font-size: 30px; margin: 0 0 10px; }
-    .section-lead { color: var(--muted); margin: 0 0 22px; max-width: 760px; }
-    .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
-    .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
-    .card { padding: 24px; }
-    .card h3 { margin: 0 0 10px; font-size: 20px; }
-    .card p { margin: 0; color: var(--muted); }
-    .tag-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
-    .tag {
-      padding: 8px 12px; border-radius: 999px; border: 1px solid var(--line);
-      color: #dbe4ff; font-size: 13px; background: rgba(255,255,255,.04);
-    }
-    .timeline { display: grid; gap: 14px; }
-    .timeline-item { padding: 20px; border-radius: 18px; background: var(--panel); border: 1px solid var(--line); }
-    .timeline-item small { color: var(--brand); display: block; margin-bottom: 8px; }
-    .quote {
-      padding: 28px; border-left: 4px solid var(--brand); background: rgba(255,255,255,.05);
-      border-radius: 0 var(--radius) var(--radius) 0; color: #dbe4ff;
-    }
-    .footer { padding: 40px 0 70px; color: var(--muted); }
-    .footer-box {
-      display: flex; justify-content: space-between; align-items: center; gap: 18px; flex-wrap: wrap;
-      padding: 24px; border-radius: var(--radius); background: var(--panel); border: 1px solid var(--line);
-    }
-    @media (max-width: 900px) {
-      .stats, .grid-3, .grid-2 { grid-template-columns: 1fr; }
-      .menu { display: none; }
-      .hero { padding-top: 56px; }
-    }
+    :root{--bg:#0b1020;--panel:rgba(255,255,255,.08);--text:#eef2ff;--muted:#b7c0df;--line:rgba(255,255,255,.12);--brand:#67e8f9;--brand2:#8b5cf6;--shadow:0 20px 60px rgba(0,0,0,.35);--radius:22px;--max:1120px}
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:Inter,ui-sans-serif,system-ui,sans-serif;color:var(--text);background:radial-gradient(circle at 10% 10%,rgba(103,232,249,.16),transparent 28%),radial-gradient(circle at 90% 20%,rgba(139,92,246,.18),transparent 28%),linear-gradient(180deg,#0b1020 0%,#10172c 100%);line-height:1.6}
+    a{color:inherit;text-decoration:none}.container{width:min(var(--max),calc(100% - 32px));margin:0 auto}.nav{position:sticky;top:0;z-index:20;backdrop-filter:blur(14px);background:rgba(11,16,32,.55);border-bottom:1px solid rgba(255,255,255,.06)}.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 0}.logo{font-weight:800;letter-spacing:.04em}.logo span{color:var(--brand)}.menu{display:flex;gap:18px;align-items:center}.menu a{color:var(--muted);font-size:14px}.menu a:hover{color:var(--text)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 18px;border-radius:999px;border:1px solid var(--line);transition:.2s ease;font-weight:600}.btn:hover{transform:translateY(-1px)}.btn.primary{background:linear-gradient(135deg,var(--brand),#7c9cff 60%,var(--brand2));color:#08101f;border:none;box-shadow:0 10px 30px rgba(103,232,249,.25)}
+    .hero{padding:84px 0 44px}.eyebrow{display:inline-block;padding:8px 12px;border:1px solid var(--line);border-radius:999px;color:var(--brand);font-size:13px;margin-bottom:18px;background:rgba(255,255,255,.05)} h1{font-size:clamp(40px,8vw,76px);line-height:.98;margin:0 0 18px;max-width:900px}.gradient{background:linear-gradient(135deg,var(--brand),#9ab0ff 40%,#c084fc 75%,#86efac);-webkit-background-clip:text;background-clip:text;color:transparent}.lead{max-width:800px;font-size:18px;color:var(--muted);margin-bottom:28px}.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:28px}
+    .stats,.grid-3,.grid-2{display:grid;gap:14px}.stats{grid-template-columns:repeat(4,minmax(0,1fr));margin-top:28px}.grid-3{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.grid-2{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.stat,.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.stat{padding:18px}.stat strong{display:block;font-size:26px;margin-bottom:6px}.stat span,.card p,.section-lead{color:var(--muted)} section{padding:34px 0}.section-title{font-size:30px;margin:0 0 10px}.card{padding:24px}.card h3{margin:0 0 10px;font-size:20px}.tag-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}.tag{padding:8px 12px;border-radius:999px;border:1px solid var(--line);color:#dbe4ff;font-size:13px;background:rgba(255,255,255,.04)}
+    .timeline{display:grid;gap:14px}.timeline-item{padding:20px;border-radius:18px;background:var(--panel);border:1px solid var(--line)}.timeline-item small{color:var(--brand);display:block;margin-bottom:8px}.quote{padding:28px;border-left:4px solid var(--brand);background:rgba(255,255,255,.05);border-radius:0 var(--radius) var(--radius) 0;color:#dbe4ff}.footer{padding:40px 0 70px;color:var(--muted)}.footer-box{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;padding:24px;border-radius:var(--radius);background:var(--panel);border:1px solid var(--line)}
+    @media (max-width:900px){.stats,.grid-3,.grid-2{grid-template-columns:1fr}.menu{display:none}.hero{padding-top:56px}}
   </style>
 </head>
 <body>
-  <nav class="nav">
-    <div class="container nav-inner">
-      <a class="logo" href="#top">Rao<span>Xu</span></a>
-      <div class="menu">
-        <a href="#about">About</a>
-        <a href="#services">Expertise</a>
-        <a href="#work">Focus</a>
-        <a href="#contact">Contact</a>
-        <a class="btn" href="about.html">Profile</a>
-      </div>
-    </div>
-  </nav>
-
-  <main id="top" class="container">
+  <nav class="nav"><div class="container nav-inner"><a class="logo" href="index.html">Rao<span>Xu</span></a><div class="menu"><a href="about.html">About 关于</a><a href="writing.html">Writing 写作</a><a href="projects.html">Projects 项目</a><a href="contact.html">Contact 联系</a><a class="btn" href="about.html">Profile 简介</a></div></div></nav>
+  <main class="container">
     <section class="hero">
       <div class="eyebrow">SAP BASIS · INFRASTRUCTURE · OPERATIONS · STABILITY</div>
-      <h1>构建稳定、安全、<br><span class="gradient">可扩展的 SAP 系统运行环境。</span></h1>
-      <p class="lead">
-        我是 Rao Xu，专注于 SAP Basis。
-        我关注 SAP 系统安装与维护、Landscape 管理、性能优化、升级迁移、备份恢复以及企业级运行保障，帮助团队让关键业务系统持续稳定运转。
-      </p>
-      <div class="hero-actions">
-        <a class="btn primary" href="#contact">联系我</a>
-        <a class="btn" href="#services">查看专业方向</a>
-        <a class="btn" href="about.html">查看个人简介</a>
-      </div>
-
-      <div class="stats">
-        <div class="stat"><strong>Administration</strong><span>SAP 系统安装、配置、日常管理</span></div>
-        <div class="stat"><strong>Monitoring</strong><span>运行监控、性能排查与稳定性维护</span></div>
-        <div class="stat"><strong>Migration</strong><span>升级、迁移、备份恢复与变更支持</span></div>
-        <div class="stat"><strong>Reliability</strong><span>企业级 SAP landscape 持续可用保障</span></div>
-      </div>
+      <h1>Building stable, secure and <span class="gradient">scalable SAP landscapes.</span><br/>构建稳定、安全、可扩展的 SAP 系统环境。</h1>
+      <p class="lead">I’m Rao Xu, a SAP Basis consultant focused on SAP administration, monitoring, migration, backup and system reliability. This site is built as a bilingual professional homepage and a long-term knowledge base for SAP Basis operations.<br/><br/>我是 Rao Xu，专注 SAP Basis、系统管理、监控、迁移、备份恢复与运行稳定性。这个网站会逐步发展成一个中英文双语的专业主页与 SAP Basis 知识沉淀入口。</p>
+      <div class="hero-actions"><a class="btn primary" href="contact.html">Contact Me 联系我</a><a class="btn" href="writing.html">Read Articles 查看文章</a><a class="btn" href="projects.html">View Projects 查看项目</a></div>
+      <div class="stats"><div class="stat"><strong>Administration</strong><span>Installation, configuration and daily SAP basis operations / 安装配置与日常运维</span></div><div class="stat"><strong>Monitoring</strong><span>Monitoring, troubleshooting and performance analysis / 监控、排障与性能分析</span></div><div class="stat"><strong>Migration</strong><span>Upgrade, migration, backup and recovery support / 升级迁移与备份恢复</span></div><div class="stat"><strong>Reliability</strong><span>Reliable SAP landscape for business continuity / 企业级稳定运行保障</span></div></div>
     </section>
-
-    <section id="about">
-      <h2 class="section-title">我做什么</h2>
-      <p class="section-lead">
-        参考优秀的 SAP 技术站点后，我认为你的个人站不该走“泛个人表达”路线，而应该清晰地围绕 SAP Basis 的专业价值展开：稳定、可用、安全、可运维。
-      </p>
-      <div class="grid-3">
-        <article class="card">
-          <h3>SAP Basis Administration</h3>
-          <p>覆盖 SAP 系统安装、配置、客户端与实例管理、传输与基础运维支持。</p>
-        </article>
-        <article class="card">
-          <h3>Performance & Monitoring</h3>
-          <p>聚焦系统监控、性能调优、问题定位与容量管理，降低风险与停机影响。</p>
-        </article>
-        <article class="card">
-          <h3>Upgrade, Migration & Support</h3>
-          <p>支持升级、迁移、备份恢复与变更执行，让关键系统更稳定地演进。</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="services">
-      <h2 class="section-title">专业方向</h2>
-      <p class="section-lead">我参考了优秀 SAP Basis 站点的共同特点：首页先讲专业领域，内容层再承接技术文章和经验总结。你的站也应该按这个架构走。</p>
-      <div class="grid-2">
-        <article class="card">
-          <h3>01 · SAP Landscape & Operations</h3>
-          <p>围绕系统架构、实例管理、日常运行、补丁维护和环境健康度展开，体现你的核心职业能力。</p>
-          <div class="tag-list">
-            <span class="tag">Landscape</span>
-            <span class="tag">Operations</span>
-            <span class="tag">System Health</span>
-          </div>
-        </article>
-        <article class="card">
-          <h3>02 · Knowledge & Technical Writing</h3>
-          <p>后续逐步增加 SAP Basis 文章、运维经验、故障处理、升级迁移记录，让网站成为长期积累的专业资产。</p>
-          <div class="tag-list">
-            <span class="tag">Technical Notes</span>
-            <span class="tag">Upgrade</span>
-            <span class="tag">Troubleshooting</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="work">
-      <h2 class="section-title">网站架构方向</h2>
-      <p class="section-lead">我参考的优秀样本主要有三类：咨询型首页、技术博客型内容页、知识沉淀型栏目页。适合你的组合是前者 + 后两者。</p>
-      <div class="timeline">
-        <div class="timeline-item">
-          <small>LAYER 01</small>
-          <strong>Professional Homepage</strong>
-          <div>首页清楚说明你是谁、你专注什么、你能解决哪类 SAP Basis 问题。</div>
-        </div>
-        <div class="timeline-item">
-          <small>LAYER 02</small>
-          <strong>Technical Writing</strong>
-          <div>后续增加文章栏目，输出 SAP Basis 运维经验、性能优化、升级迁移和故障处理方法。</div>
-        </div>
-        <div class="timeline-item">
-          <small>LAYER 03</small>
-          <strong>Project / Experience Archive</strong>
-          <div>再逐步沉淀项目经验、工作案例和系统实践，形成长期可信度。</div>
-        </div>
-      </div>
-    </section>
-
     <section>
-      <div class="quote">
-        “对 SAP Basis 个人网站来说，最重要的不是花哨，而是专业可信：让访问者立刻知道你负责什么系统、能解决什么问题、是否值得信任。”
-      </div>
+      <h2 class="section-title">What I Do / 我做什么</h2>
+      <p class="section-lead">The best SAP Basis websites are not flashy. They are clear, structured and credible. This site follows the same principle: professional homepage first, technical content second, long-term archive third. / 优秀的 SAP Basis 个人站不靠花哨，而靠清晰、结构化和专业可信。</p>
+      <div class="grid-3"><article class="card"><h3>SAP Basis Administration</h3><p>System installation, configuration, transport support, client and instance management. / 覆盖系统安装、配置、传输支持、客户端与实例管理。</p></article><article class="card"><h3>Performance & Monitoring</h3><p>Runtime monitoring, issue diagnosis, tuning and capacity awareness. / 聚焦运行监控、问题定位、性能调优与容量管理。</p></article><article class="card"><h3>Upgrade & Migration</h3><p>Support for upgrades, migrations, backup, recovery and controlled changes. / 支持升级、迁移、备份恢复与变更执行。</p></article></div>
     </section>
-
-    <section id="contact">
-      <h2 class="section-title">联系我</h2>
-      <p class="section-lead">如果你正在做个人品牌升级、网站改版、咨询服务包装，或者想把业务流程讲清楚，我可以直接帮你推进。</p>
-      <div class="grid-2">
-        <article class="card">
-          <h3>合作方向</h3>
-          <p>个人品牌官网 / 咨询服务表达 / 数字化定位 / 自动化流程优化</p>
-        </article>
-        <article class="card">
-          <h3>联系方式</h3>
-          <p>邮箱：<a href="mailto:xu.rao@lilve.com">xu.rao@lilve.com</a><br />如果你对个人品牌、数字表达或新的合作方向感兴趣，欢迎直接联系我。</p>
-        </article>
-      </div>
+    <section>
+      <h2 class="section-title">Site Structure / 网站架构</h2>
+      <div class="timeline"><div class="timeline-item"><small>LAYER 01</small><strong>Professional Homepage / 专业首页</strong><div>Explain who you are, what you focus on, and what SAP Basis problems you can handle.</div></div><div class="timeline-item"><small>LAYER 02</small><strong>Technical Writing / 技术写作</strong><div>Publish SAP Basis notes on operations, upgrades, monitoring and troubleshooting.</div></div><div class="timeline-item"><small>LAYER 03</small><strong>Projects & Experience / 项目与经验</strong><div>Build long-term credibility with project snapshots and practical archives.</div></div></div>
+    </section>
+    <section>
+      <div class="quote">A strong SAP Basis personal website should answer three questions immediately: What systems do you handle? What problems can you solve? Why should people trust you? / 一个好的 SAP Basis 个人网站，应该立刻回答：你管什么系统、你能解决什么问题、为什么值得信任。</div>
     </section>
   </main>
-
-  <footer class="footer">
-    <div class="container footer-box">
-      <div>
-        <strong>Rao Xu</strong><br />
-        <span>Personal brand website for modern consulting, systems and digital growth.</span>
-      </div>
-      <a class="btn primary" href="about.html">Read full profile</a>
-    </div>
-  </footer>
+  <footer class="footer"><div class="container footer-box"><div><strong>Rao Xu</strong><br/><span>SAP Basis Consultant · Bilingual personal website · SAP operations knowledge archive</span></div><a class="btn primary" href="writing.html">Go to Writing</a></div></footer>
 </body>
 </html>
